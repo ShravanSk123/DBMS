@@ -20,33 +20,32 @@ void insert()
 {
 	FILE *fptr;
   	fptr = fopen("studb1","a");
-  	printf("Enter the student's name:\n");
+  	printf("Enter the student's name:\n> ");
   	scanf(" %[^\n]s",stu.name);
 
-  	printf("Enter the student id:\n");
+  	printf("Enter the student id:\n> ");
   	scanf("%d",&stu.id);
 
-  	printf("Enter the student's address/Place:\n");
+  	printf("Enter the student's Place:\n> ");
   	scanf(" %[^\n]s",stu.address);
 
-  	printf("Enter the student's date of birth:\n");
+  	printf("Enter the student's date of birth:\n> ");
   	scanf(" %[^\n]s",stu.dob);
 	
-  	printf("Enter the student's EMAIL:\n");
+  	printf("Enter the student's EMAIL:\n> ");
   	scanf(" %[^\n]s",stu.mail);
 	
-  	printf("Enter the student's phone number:\n");
+  	printf("Enter the student's phone number:\n> ");
   	scanf("%ld",&stu.phone);
 	
-  	printf("Enter the student's branch:\n");
+  	printf("Enter the student's branch:\n> ");
   	scanf(" %[^\n]s",stu.branch);
 	
-  	printf("Enter the student's course:\n");
+  	printf("Enter the student's course:\n> ");
   	scanf(" %[^\n]s",stu.course);
 		
   	fwrite(&stu,sizeof(stu),1,fptr);
   
-  	//fprintf(fptr,"%-30s %-30d %-30s %-30s %-30s %-30ld %-30s %-30s\n",stu.name,stu.id,stu.address,stu.dob,stu.mail,stu.phone,stu.branch,stu.course);
 		
   	fclose(fptr);
 }
@@ -95,10 +94,10 @@ void deletes()
 	FILE *fpo;
  	FILE *fpn;
  	int sid, x;
- 	printf("Enter the student id to delete:\n");
+ 	printf("Enter the student id to delete:\n> ");
  	scanf("%d", &sid);
  	if (idavl(sid) == 0)
-  		printf("Student with id '%d' is not listed\n", sid);
+  		printf("Student with id '%d' is not listed in the databse\n", sid);
  	else
  	{
   		fpo = fopen("studb1", "r");
@@ -132,7 +131,7 @@ void search()
 	FILE *fp2;
 	
 	int sid, s, avl;
- 	printf("Enter studuent id to search\n:");
+ 	printf("Enter studuent id to search:\n> ");
  	scanf("%d", &sid);
  	avl = idavl(sid);
  	if (avl == 0)
@@ -162,7 +161,7 @@ void update()
  	FILE *fpn;
  	FILE *fpo;
  	int s, sid, ch;
- 	printf("Enter student id to select student to be updated:");
+ 	printf("Enter student id to select student to be updated:> ");
  	scanf("%d", &sid);
  	avl = idavl(sid);
  	if (avl == 0)
@@ -184,28 +183,28 @@ void update()
    				scanf("%d",&ch);
    				switch(ch)
    				{
-   					case 1:	printf("Enter Updated Name:\n");
+   					case 1:	printf("Enter Updated Name:\n> ");
 						scanf("%s", stu.name);
 						break;
-     					case 2:	printf("Enter Updated id:\n");
+     					case 2:	printf("Enter Updated id:\n> ");
 						scanf("%d", &stu.id);
 						break;
-			  		case 3: printf("Enter Updated address:\n");
+			  		case 3: printf("Enter Updated address:\n> ");
 						scanf("%s", stu.address);
 						break;
-            				case 4:	printf("Enter Updated DOB:\n");
+            				case 4:	printf("Enter Updated DOB:\n> ");
 						scanf("%s", stu.dob);
 						break;
-     					case 5:	printf("Enter Updated email:\n");
+     					case 5:	printf("Enter Updated email:\n> ");
 						scanf("%s", stu.mail);
 						break;
-     					case 6:	printf("Enter Updated phone:\n");
+     					case 6:	printf("Enter Updated phone:\n> ");
 						scanf("%ld", &stu.phone);
 						break;
-     					case 7:	printf("Enter Updated branch:\n");
+     					case 7:	printf("Enter Updated branch:\n> ");
 						scanf("%s", stu.branch);
 						break;
-     					case 8:	printf("Enter Updated course:\n");
+     					case 8:	printf("Enter Updated course:\n> ");
 						scanf("%s", stu.course);
 						break;
      					default: printf("Invalid selection.Can't update record...\n");
@@ -238,7 +237,7 @@ void main()
 	int ch;
 	while(1)
 	{
-		printf("\n1: Insert New Student Data\n2: Delete Existing Data\n3: Search for Student by ID\n4: Update(one field at a time) a field\n5: Display Data Stored in Database\n >=6: Exit\n");
+		printf("\nWhat to do?\n1: Insert New Student Data\n2: Delete Existing Data\n3: Search for Student by ID\n4: Update(one field at a time) a field\n5: Display Data Stored in Database\n >=6: Exit\n");
 		scanf("%d",&ch);
     
 		switch(ch)
